@@ -6,8 +6,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:notice] = 'You signed up successfully!'
       redirect_to root_url
     else
+      flash[:error] = 'Retry sign up... missing input!'
       render :new
   end
 
