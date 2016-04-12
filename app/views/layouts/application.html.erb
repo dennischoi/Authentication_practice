@@ -8,6 +8,14 @@
 </head>
 <body>
 
+  <% if current_user %>
+    <p>
+      Logged in as <%= current_user.email %>
+    </p>
+
+
+  <% end %>
+
   <% if flash.any? %>
     <% flash.each do |key, value| %>
       <p>
