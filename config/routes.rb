@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   root "users#new"
 
+  get 'login' => 'sessions#new'
+  delete 'logout' => 'sessions#destroy'
+# good practice to get rid of paths youve made shortcuts for (original paths like sessions_path etc. on the resource of them)
+
   resource :users, only: %i(new create)
   resource :sessions, only: %i(new create destroy)
   # The priority is based upon order of creation: first created -> highest priority.
